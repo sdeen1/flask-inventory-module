@@ -1,0 +1,9 @@
+body {
+    font-family: Calibri, Arial, Helvetica, sans-serif;
+    font-size: small;
+}
+
+.container {
+    margin: auto;
+    width: 80%;
+}

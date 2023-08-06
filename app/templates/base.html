@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static',filename='styles/styles.css') }}" type= "text/css" rel="stylesheet" />
+    <link href="{{ url_for('static',filename='styles/additem.css') }}" type= "text/css" rel="stylesheet" />
     <title>{{ title }} - Inventory Module</title>
 </head>
 <body>
     <div>
         Inventory Module: 
         <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('add') }}">Add Item</a>
     </div>
     <hr>
-    {% block content %}{% endblock %}
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
 </body>
 </html>

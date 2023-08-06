@@ -1,0 +1,20 @@
+form {
+    /* */
+}
+
+.form-group {
+    margin: 1em 0;
+}
+
+.form-group-prices {
+    /* */
+}
+
+.form-group-price {
+    display: inline;
+    margin-right: 1em;
+}
+
+.form-heading {
+    font-weight: bold;
+}
