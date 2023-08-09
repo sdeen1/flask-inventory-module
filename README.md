@@ -1,6 +1,6 @@
 # Inventory Module
 
-## Todo
+## Outline
 
 1. Inventory CRUD  
     a. Add new items or add to existing inventory (update)   
@@ -12,3 +12,7 @@
     a. Login page  
     b. Create new user page, needs to be locked down so that only an admin can add new users  
     c. Logout page
+
+## Todo:
+- [ ] Make the errors from validation more user friendly on the Add Item page.  
+- [ ] Set up and add the database.
