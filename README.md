@@ -14,5 +14,17 @@
     c. Logout page
 
 ## Todo:
+### Create
 - [ ] Make the errors from validation more user friendly on the Add Item page.  
-- [ ] Set up and add the database.
+- [ X ] Set up and add the database.
+- [ X ] Add logic to the routes to add data from addItem.html to the database.
+### Read
+- [ X ] Display all the items on the index.html page.
+- [ ] Formatting: make all item names and descriptions start with an upper case letter.
+- [ ] Formatting: format all the prices to have dollar signs and decimals
+- [ ] Formatting: check for None or blank values and make them "N/A"
+### Delete
+- [ ] Add a delete button to the index page
+- [ ] Delete item from database
+### Update
+- [ ] Update item's info

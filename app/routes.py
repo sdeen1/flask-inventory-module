@@ -1,16 +1,29 @@
-from app import app
+from app import app, db
 from flask import render_template, redirect, flash, request
 from app.forms import AddItemForm
+from app.models import Item
 
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html', title="Home")
+    items = Item.query.all()
+    return render_template('index.html', title="Home", items=items)
 
 @app.route('/add', methods=['GET','POST'])
 def add():
     form = AddItemForm()
     if form.validate(): #_on_submit():  #request.method == "POST":
+        item = Item(
+            name = form.name.data,
+            description = form.description.data,
+            total = form.total.data,
+            halfDay = form.halfDay.data,
+            day = form.day.data,
+            week = form.week.data,
+            month = form.month.data
+        )
+        db.session.add(item)
+        db.session.commit()
         print("form validated")
         flash('Added Item: {}, Item desciption: {}'.format(form.name.data, form.description.data))
         return redirect('/index')

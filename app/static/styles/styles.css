@@ -7,3 +7,24 @@ body {
     margin: auto;
     width: 80%;
 }
+
+table {
+    border-collapse: collapse;
+    /*border: solid black 1px; */
+}
+
+tr {
+    border-bottom: solid lightgray 1px;
+}
+
+thead > tr:last-child {
+    border-bottom: solid darkgray 1px;
+}
+
+tbody > tr:last-child {
+    border: none;
+}
+
+th, td {
+    padding: 20px;
+}
