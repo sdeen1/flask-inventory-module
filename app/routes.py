@@ -1,5 +1,5 @@
 from app import app, db
-from flask import render_template, redirect, flash, request
+from flask import render_template, redirect, flash, request, url_for
 from app.forms import AddItemForm
 from app.models import Item
 
@@ -26,5 +26,12 @@ def add():
         db.session.commit()
         print("form validated")
         flash('Added Item: {}, Item desciption: {}'.format(form.name.data, form.description.data))
-        return redirect('/index')
+        return redirect(url_for('index'))
     return render_template('addItem.html', title="Add Item", form=form)
+
+@app.route('/delete/<id>')
+def delete(id):
+    item = db.get_or_404(Item, id)
+    db.session.delete(item)
+    db.session.commit()
+    return redirect(url_for('index'))

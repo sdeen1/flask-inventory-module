@@ -24,7 +24,10 @@
 - [ ] Formatting: format all the prices to have dollar signs and decimals
 - [ ] Formatting: check for None or blank values and make them "N/A"
 ### Delete
-- [ ] Add a delete button to the index page
-- [ ] Delete item from database
+- [ X ] Add a delete button to the index page
+- [ X ] Delete item from database
 ### Update
+- [ ] Create update route (see https://wtforms.readthedocs.io/en/3.0.x/crash_course/#editing-existing-objects)
+- [ ] Create UpdateItemForm in forms.py
+- [ ] Create updateItem.html
 - [ ] Update item's info
