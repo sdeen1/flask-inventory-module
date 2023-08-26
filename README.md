@@ -27,7 +27,7 @@
 - [ X ] Add a delete button to the index page
 - [ X ] Delete item from database
 ### Update
-- [ ] Create update route (see https://wtforms.readthedocs.io/en/3.0.x/crash_course/#editing-existing-objects)
-- [ ] Create UpdateItemForm in forms.py
-- [ ] Create updateItem.html
-- [ ] Update item's info
+- [ X ] Create update route (see https://wtforms.readthedocs.io/en/3.0.x/crash_course/#editing-existing-objects)
+- ~~[ ] Create UpdateItemForm in forms.py~~
+- ~~[ ] Create updateItem.html~~
+- [ ] Update item's info in database

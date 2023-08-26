@@ -29,6 +29,28 @@ def add():
         return redirect(url_for('index'))
     return render_template('addItem.html', title="Add Item", form=form)
 
+@app.route('/update/<id>', methods=['GET','POST'])
+def update(id):
+    item = db.get_or_404(Item, id)
+    form = AddItemForm(obj=item)
+    if form.validate(): #_on_submit():  #request.method == "POST":
+        item = Item(
+            name = form.name.data,
+            description = form.description.data,
+            total = form.total.data,
+            halfDay = form.halfDay.data,
+            day = form.day.data,
+            week = form.week.data,
+            month = form.month.data
+        )
+        # Update the database
+        #db.session.add(item)
+        db.session.commit()
+        print("form validated")
+        print('Updated Item: {}, Item desciption: {}'.format(form.name.data, form.description.data))
+        return redirect(url_for('index'))
+    return render_template('addItem.html', title='Update Item', form=form)
+
 @app.route('/delete/<id>')
 def delete(id):
     item = db.get_or_404(Item, id)

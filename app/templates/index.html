@@ -30,7 +30,7 @@
         <tbody>
             {% for item in items %}
             <tr>
-                <td>{{ item.name }}</td>
+                <td><a href="{{ url_for('update', id=item.id) }}">{{ item.name }}</a></td>
                 <td>{{ item.description }}</td>
                 <td>{{ item.halfDay }}</td>
                 <td>{{ item.day }}</td>
