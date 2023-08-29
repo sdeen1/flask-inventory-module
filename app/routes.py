@@ -17,6 +17,7 @@ def add():
             name = form.name.data,
             description = form.description.data,
             total = form.total.data,
+            available = form.total.data,
             halfDay = form.halfDay.data,
             day = form.day.data,
             week = form.week.data,
@@ -34,15 +35,13 @@ def update(id):
     item = db.get_or_404(Item, id)
     form = AddItemForm(obj=item)
     if form.validate(): #_on_submit():  #request.method == "POST":
-        item = Item(
-            name = form.name.data,
-            description = form.description.data,
-            total = form.total.data,
-            halfDay = form.halfDay.data,
-            day = form.day.data,
-            week = form.week.data,
-            month = form.month.data
-        )
+        item.name = form.name.data
+        item.description = form.description.data
+        item.total = form.total.data
+        item.halfDay = form.halfDay.data
+        item.day = form.day.data
+        item.week = form.week.data
+        item.month = form.month.data
         # Update the database
         #db.session.add(item)
         db.session.commit()
@@ -56,4 +55,20 @@ def delete(id):
     item = db.get_or_404(Item, id)
     db.session.delete(item)
     db.session.commit()
+    return redirect(url_for('index'))
+
+@app.route('/rent/<id>')
+def rent(id):
+    item = db.get_or_404(Item, id)
+    if item.available is not None:
+        item.available = max(0, int(item.available) - 1)
+        db.session.commit()
+    return redirect(url_for('index'))
+
+@app.route('/return/<id>')
+def return_item(id):
+    item = db.get_or_404(Item, id)
+    if item.available is not None:
+        item.available = min(int(item.total), int(item.available) + 1)
+        db.session.commit()
     return redirect(url_for('index'))

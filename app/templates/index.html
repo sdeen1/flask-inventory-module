@@ -24,6 +24,7 @@
                 <th>Month Price</th>
                 <th>Total Items</th>
                 <th>Available Items</th>
+                <th>Actions</th>
                 <th>Delete Item</th>
             </tr>
         </thead>
@@ -38,6 +39,11 @@
                 <td>{{ item.month }}</td>
                 <td>{{ item.total }}</td>
                 <td>{{ item.available }}</td>
+                <td>
+                    <a href="{{ url_for('rent', id=item.id ) }}"><span>Rent</span></a>
+                    <span>|</span>
+                    <a href="{{ url_for('return_item', id=item.id ) }}"><span>Return</span></a>
+                </td>
                 <td>
                     <a href="{{ url_for('delete', id=item.id ) }}"><span class="material-symbols-outlined">delete</span></a>
                 </td>
